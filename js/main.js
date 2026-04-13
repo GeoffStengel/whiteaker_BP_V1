@@ -160,6 +160,10 @@ const siteData = {
       title: "Fire Spinners & Flow Zone",
       body: "One of the most visually memorable spots once the evening energy starts climbing.",
     },
+    {
+      title: "Sacred Connections Church",
+      body: "SCM One of the most visually memorable spots once the evening energy starts climbing.",
+    },
   ],
 
   vibeTexts: [
