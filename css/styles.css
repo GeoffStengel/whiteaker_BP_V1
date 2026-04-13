@@ -1,0 +1,372 @@
+/* css/styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #120022;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* NEON NAV */
+.neon-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(18, 0, 34, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 4px solid #00ffcc;
+    box-shadow: 0 0 30px #00ffcc;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.logo {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+    color: #ffff00;
+    text-shadow: 
+        0 0 10px #ffff00,
+        0 0 20px #ffff00,
+        0 0 40px #ff00aa;
+    cursor: pointer;
+}
+
+.neon-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.neon-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.neon-nav a:hover {
+    color: #00ffcc;
+    text-shadow: 0 0 15px #00ffcc;
+}
+
+.glow-button {
+    background: linear-gradient(45deg, #ff00aa, #00ffcc);
+    color: #120022;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    box-shadow: 0 0 30px #ff00aa,
+                0 0 60px #00ffcc;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.glow-button:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 0 50px #ffff00;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 80px;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 900px;
+}
+
+.neon-title {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 1.05;
+    letter-spacing: -4px;
+    margin-bottom: 1rem;
+    text-shadow: 
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #00ffcc,
+        0 0 70px #ff00aa,
+        0 0 100px #ffff00;
+    animation: neon-flicker 1.5s infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #ffff00;
+    text-shadow: 0 0 20px #ffff00;
+    letter-spacing: 8px;
+}
+
+.neon-badge {
+    display: inline-block;
+    background: #120022;
+    color: #00ffcc;
+    padding: 8px 24px;
+    margin: 8px;
+    border-radius: 50px;
+    border: 3px solid #00ffcc;
+    box-shadow: 0 0 20px #00ffcc;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.massive-glow-btn {
+    margin-top: 3rem;
+    font-size: 1.8rem;
+    padding: 25px 60px;
+    border: none;
+    background: #120022;
+    color: #fff;
+    border-radius: 9999px;
+    box-shadow: 
+        0 0 40px #ff00aa,
+        0 0 80px #00ffcc,
+        0 0 120px #ffff00;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.massive-glow-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 
+        0 0 60px #ffff00,
+        0 0 120px #ff00aa;
+}
+
+.floating-signs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.neon-sign {
+    position: absolute;
+    top: 20%;
+    background: #120022;
+    color: #ffff00;
+    padding: 15px 40px;
+    border: 6px solid #ffff00;
+    font-size: 2rem;
+    font-weight: 900;
+    box-shadow: 0 0 40px #ffff00;
+    animation: float 6s ease-in-out infinite;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+/* SECTIONS */
+.section {
+    padding: 120px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.dark {
+    background: #1a0033;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px #00ffcc;
+}
+
+/* SCHEDULE GRID */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.schedule-card {
+    background: #120022;
+    border: 4px solid #00ffcc;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 0 30px #00ffcc;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.schedule-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 60px #ffff00;
+}
+
+.schedule-card h4 {
+    color: #ffff00;
+}
+
+/* MAP */
+.map-container {
+    background: #120022;
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: 0 0 60px rgba(0, 255, 204, 0.5);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#block-map {
+    filter: drop-shadow(0 0 40px #ff00aa);
+    cursor: crosshair;
+}
+
+.hotspot {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hotspot:hover circle,
+.hotspot:hover rect {
+    filter: brightness(1.6);
+}
+
+/* ITINERARY BUILDER */
+.itinerary-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.itinerary-list {
+    min-height: 420px;
+    background: #120022;
+    border: 5px dashed #ffff00;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.available-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.event-pill {
+    background: #1a0033;
+    padding: 14px 20px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 15px #00ffcc;
+    cursor: grab;
+}
+
+/* VIBE METER */
+.vibe-meter {
+    height: 40px;
+    background: #1a0033;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin: 2rem 0;
+    box-shadow: 0 0 30px #ffff00;
+}
+
+.vibe-bar {
+    height: 100%;
+    width: 65%;
+    background: linear-gradient(90deg, #00ffcc, #ffff00, #ff00aa);
+    box-shadow: 0 0 30px #ffff00;
+    transition: width 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.vibe-text {
+    font-size: 1.6rem;
+    text-align: center;
+    text-shadow: 0 0 20px #ffff00;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 0, 34, 0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #1a0033;
+    max-width: 520px;
+    width: 90%;
+    border-radius: 25px;
+    padding: 2rem;
+    position: relative;
+    border: 6px solid #ff00aa;
+    box-shadow: 0 0 80px #ff00aa;
+}
+
+/* ANIMATIONS */
+@keyframes neon-flicker {
+    0% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #00ffcc, 0 0 70px #ff00aa, 0 0 100px #ffff00; }
+    100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00ffcc, 0 0 40px #ff00aa, 0 0 60px #ffff00; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .itinerary-split { grid-template-columns: 1fr; }
+    .nav-container ul { display: none; } /* Could add hamburger but kept simple */
+}

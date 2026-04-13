@@ -3,9 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whiteaker Block Party 🎉</title>
+    <meta name="description" content="Whiteaker Block Party 2026 – Eugene's most electric neighborhood celebration. Music, art, vendors, fire spinners &amp; pure glow energy!">
+    <title>WHITEAKER BLOCK PARTY 2026 • EUGENE, OR</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap');
+    </style>
 </head>
 <body>
-    
+    <!-- CANVAS BACKGROUND (the mind-blowing part) -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- NAV -->
+    <nav class="neon-nav">
+        <div class="nav-container">
+            <div class="logo" id="logo">⚡ WHITEAKER ⚡</div>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">THE BLOCK</a></li>
+                <li><a href="#schedule">SCHEDULE</a></li>
+                <li><a href="#map">EXPLORE THE BLOCK</a></li>
+                <li><a href="#itinerary">MY GLOW PLAN</a></li>
+                <li><a href="#vibe">VIBE CHECK</a></li>
+            </ul>
+            <div class="glow-button" id="join-btn">JOIN THE GLOW</div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="neon-title">WHITEAKER<br>BLOCK PARTY</h1>
+            <p class="subtitle">AUGUST 8 • 2026 • 12PM–10PM • BLAIR BLVD, EUGENE</p>
+            <div class="hero-badges">
+                <span class="neon-badge">LIVE MUSIC</span>
+                <span class="neon-badge">STREET VENDORS</span>
+                <span class="neon-badge">FIRE SPINNERS</span>
+                <span class="neon-badge">LIVE ART</span>
+                <span class="neon-badge">DJ TAKEOVERS</span>
+            </div>
+            <button onclick="explodeConfetti()" class="massive-glow-btn">
+                ENTER THE BLOCK
+                <span class="sparkles">✺ ✺ ✺</span>
+            </button>
+            <div class="scroll-hint">↓ SCROLL FOR THE GLOW ↓</div>
+        </div>
+        
+        <!-- Floating neon signs -->
+        <div class="floating-signs">
+            <div class="neon-sign" style="left:10%; animation-delay:0s;">MUSIC</div>
+            <div class="neon-sign" style="right:15%; animation-delay:1.2s;">ART</div>
+            <div class="neon-sign" style="left:25%; animation-delay:0.8s;">FOOD</div>
+            <div class="neon-sign" style="right:20%; animation-delay:2s;">GLOW</div>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <div class="section-header">
+            <h2>THE WHITEAKER LEGEND</h2>
+            <p class="tagline">For over 15 years, the Whit has thrown the most electric block party in Oregon.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>THE VIBE</h3>
+                <p>Local bands, DJs, comedians, fire spinners, live muralists, and street vendors take over Blair Blvd. Thousands of Eugene legends show up ready to glow.</p>
+            </div>
+            <div class="about-card">
+                <h3>HISTORY</h3>
+                <p>Started in a brewery parking lot. Now it's a full neighborhood takeover — the unofficial heartbeat of Eugene's most creative corner.</p>
+            </div>
+            <div class="about-card">
+                <h3>2026</h3>
+                <p>August 8 • 12PM–10PM • 420 Blair Blvd (Twenty After Four) + the whole Whit. All ages. Free entry. Pure community magic.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SCHEDULE -->
+    <section id="schedule" class="section dark">
+        <div class="section-header">
+            <h2>SCHEDULE • FILTER &amp; BUILD</h2>
+            <div class="filters">
+                <button onclick="filterCategory('all')" class="filter-btn active">ALL</button>
+                <button onclick="filterCategory('music')" class="filter-btn">🎸 MUSIC</button>
+                <button onclick="filterCategory('art')" class="filter-btn">🎨 ART</button>
+                <button onclick="filterCategory('food')" class="filter-btn">🌮 FOOD</button>
+                <button onclick="filterCategory('vendor')" class="filter-btn">🛍️ VENDORS</button>
+            </div>
+        </div>
+        
+        <div id="schedule-grid" class="schedule-grid"></div>
+    </section>
+
+    <!-- INTERACTIVE MAP -->
+    <section id="map" class="section">
+        <div class="section-header">
+            <h2>EXPLORE THE BLOCK • CLICK ANY GLOW</h2>
+            <p class="tagline">Blair Blvd is alive. Tap the hotspots to feel the energy.</p>
+        </div>
+        
+        <div class="map-container">
+            <svg id="block-map" width="100%" height="520" viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" aria-labelledby="map-title" role="img">
+                <title id="map-title">Interactive Whiteaker Block Party Map – Blair Blvd</title>
+                <!-- Street -->
+                <rect x="50" y="220" width="1100" height="80" rx="10" ry="10" fill="#1a0033" stroke="#00ffcc" stroke-width="20"/>
+                <!-- Street dashes -->
+                <line x1="100" y1="260" x2="1100" y2="260" stroke="#ffff00" stroke-width="8" stroke-dasharray="40 30"/>
+                
+                <!-- Hotspots -->
+                <!-- Twenty After Four -->
+                <g onclick="showMapInfo(0)" class="hotspot">
+                    <circle cx="220" cy="180" r="45" fill="#ff00aa"/>
+                    <text x="220" y="195" text-anchor="middle" fill="#fff" font-size="28" font-weight="900">420</text>
+                    <text x="220" y="225" text-anchor="middle" fill="#fff" font-size="14">TWENTY AFTER FOUR</text>
+                </g>
+                
+                <!-- Blairally Vintage -->
+                <g onclick="showMapInfo(1)" class="hotspot">
+                    <circle cx="420" cy="340" r="45" fill="#00ffcc"/>
+                    <text x="420" y="355" text-anchor="middle" fill="#1a0033" font-size="22" font-weight="900">ARCADE</text>
+                </g>
+                
+                <!-- Sam Bond's Stage -->
+                <g onclick="showMapInfo(2)" class="hotspot">
+                    <circle cx="680" cy="140" r="45" fill="#ffff00"/>
+                    <text x="680" y="155" text-anchor="middle" fill="#1a0033" font-size="18">SAM BOND'S</text>
+                    <text x="680" y="180" text-anchor="middle" fill="#1a0033" font-size="14">STAGE</text>
+                </g>
+                
+                <!-- Main Vendor Row -->
+                <g onclick="showMapInfo(3)" class="hotspot">
+                    <rect x="820" y="280" width="90" height="90" rx="15" ry="15" fill="#00ff88"/>
+                    <text x="865" y="325" text-anchor="middle" fill="#1a0033" font-size="32">🛍️</text>
+                    <text x="865" y="360" text-anchor="middle" fill="#1a0033" font-size="14">VENDORS</text>
+                </g>
+                
+                <!-- Fire Spinners Area -->
+                <g onclick="showMapInfo(4)" class="hotspot">
+                    <circle cx="1050" cy="300" r="45" fill="#ff8800"/>
+                    <text x="1050" y="315" text-anchor="middle" fill="#fff" font-size="32">🔥</text>
+                    <text x="1050" y="350" text-anchor="middle" fill="#fff" font-size="14">SPINNERS</text>
+                </g>
+                
+                <!-- Labels -->
+                <text x="100" y="100" font-size="22" fill="#ff00aa" font-weight="900">BLAIR BLVD</text>
+                <text x="50" y="280" font-size="18" fill="#00ffcc" transform="rotate(-90 50 280)">WHITEAKER</text>
+                <text x="1150" y="280" font-size="18" fill="#ffff00">3RD AVE</text>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ITINERARY BUILDER (the functional tool) -->
+    <section id="itinerary" class="section dark">
+        <div class="section-header">
+            <h2>MY GLOW ITINERARY BUILDER</h2>
+            <p class="tagline">Drag events into your day • Watch your Vibe Score explode</p>
+        </div>
+        
+        <div class="itinerary-split">
+            <!-- Available events (same as schedule but simplified) -->
+            <div class="itinerary-available">
+                <h3>AVAILABLE ENERGY</h3>
+                <div id="available-events" class="available-list"></div>
+            </div>
+            
+            <!-- Your plan -->
+            <div class="itinerary-plan">
+                <h3>YOUR BLOCK PLAN <span id="vibe-score" class="vibe-score">0 GLOW</span></h3>
+                <div id="my-itinerary" class="itinerary-list"></div>
+                <button onclick="clearItinerary()" class="reset-btn">RESET DAY</button>
+                <div id="itinerary-summary" class="summary"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIBE CHECK (fun extra) -->
+    <section id="vibe" class="section">
+        <div class="vibe-check">
+            <h2>REAL-TIME PARTY VIBE CHECK</h2>
+            <div class="vibe-meter">
+                <div id="vibe-bar" class="vibe-bar"></div>
+            </div>
+            <p id="vibe-text" class="vibe-text">THE BLOCK IS CURRENTLY AT MAX GLOW 🔥</p>
+            <button onclick="boostVibe()" class="vibe-boost">ADD YOUR ENERGY</button>
+            <small>Interactions across the site raise the vibe meter</small>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2026 Whiteaker Block Party • Built with pure neon HTML + CSS + JS in Eugene, Oregon</p>
+            <div class="social">
+                <a href="https://www.instagram.com/whiteakerblockparty/" target="_blank">📸 INSTAGRAM</a>
+                <a href="https://www.facebook.com/whiteakerblockparty/" target="_blank">📘 FACEBOOK</a>
+            </div>
+            <p class="made-with">Made as a glowing tribute to the Whit • Feel free to customize dates, events, and images</p>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" class="close">×</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
