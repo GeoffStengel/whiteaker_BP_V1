@@ -27,11 +27,11 @@ Website for the Whiteaker Block Party 2026!
 
 
 // ======== EXTRA HELPFUL INFO TO HELP LEARN: 
-📸 Have Project Images Ready & Images You Have Please Upload em In "images" Folder. 
+📸  Have Project Images Ready & Images You Have Please Upload em In "images" Folder. 
 👉🏽   1️: To Add images go to "Add File" tab, in the Folder you want to ADD them to. 
 👉🏽   2️: PLEASE label files especially if its just random numbers lol 
 👉🏽   3️: For Logo If You Have SVG's Scalable Vector Graphic They're Always Good
 
-🛎️ Helpful Links For Setting Up Domain & Adding Images & Files👇 
+🛎️  Helpful Links For Setting Up Domain & Adding Images & Files👇 
 🎥   1. Github Basics: https://youtu.be/iv8rSLsi1xo & https://youtu.be/v_1iqtOnUMg
 📷   2. Github How To Upload Images .58 Seconds Long: https://www.youtube.com/watch?v=ATVm6ACERu8
