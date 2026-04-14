@@ -114,6 +114,7 @@ svg {
   justify-content: space-between;
   gap: 1rem;
   position: relative;
+  margin-left: 16px;
 }
 
 .logo-btn {
@@ -1091,6 +1092,16 @@ nav ul {
     display: inline-flex;
   }
 
+.nav-container {
+    gap: 0px;
+    margin-right: 0px;
+}
+.menu-toggle {
+  margin-left: auto;
+}
+.menu-toggle{
+    float: right;
+}
   nav ul {
     position: absolute;
     top: calc(100% + 0.5rem);
