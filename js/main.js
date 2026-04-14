@@ -325,6 +325,8 @@ function animateParticles() {
     p.update(mouse);
     p.draw();
 
+    /* ===== ORIGINAL MORE LINE PARTICLE CONNECTIONS START ===== */
+    /*
     for (let j = i - 1; j >= 0; j -= 1) {
       const p2 = particles[j];
       const dx = p.x - p2.x;
@@ -345,6 +347,60 @@ function animateParticles() {
         ctx.restore();
       }
     }
+    */
+    /* ===== ORIGINAL MORE LINE PARTICLE CONNECTIONS END ===== */
+
+    /* ===== LESS PARTICLE CONNECTIONS START ===== */
+    /*
+    if (!isMobile) {
+      for (let j = i - 1; j >= 0; j -= 1) {
+        const p2 = particles[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < CONNECT_DISTANCE) {
+          ctx.save();
+          ctx.strokeStyle = p.color;
+          ctx.globalAlpha = (CONNECT_DISTANCE - distance) / 280;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = p.color;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+    }
+    */
+    /* ===== LESS PARTICLE CONNECTIONS END ===== */
+
+    /* ===== CURRENT PARTICLE CONNECTIONS START ===== */
+    for (let j = i - 1; j >= 0; j -= 1) {
+      if (isMobile && j % 2 !== 0) continue;
+
+      const p2 = particles[j];
+      const dx = p.x - p2.x;
+      const dy = p.y - p2.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < CONNECT_DISTANCE) {
+        ctx.save();
+        ctx.strokeStyle = p.color;
+        ctx.globalAlpha = (CONNECT_DISTANCE - distance) / 280;
+        ctx.shadowBlur = isMobile ? 4 : 10;
+        ctx.shadowColor = p.color;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+    /* ===== CURRENT PARTICLE CONNECTIONS END ===== */
 
     if (p.life <= 0 || p.size <= 0.5) {
       particles.splice(i, 1);
