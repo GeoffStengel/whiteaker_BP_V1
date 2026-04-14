@@ -1067,6 +1067,12 @@ nav ul {
 }
 /* ===== ANIMATIONS END ===== */
 
+.geoff_link{
+    color: #fbf70b;
+}
+.geoff_link:hover{
+    color: #ff04b8;
+}
 /* ===== RESPONSIVE STYLES START ===== */
 @media (max-width: 1100px) {
   .story-grid,
