@@ -221,6 +221,27 @@ let activeFilter = "all";
 let globalVibe = 65;
 let mouse = { x: 0, y: 0 };
 let myItinerary = JSON.parse(localStorage.getItem("whiteakerItinerary") || "[]");
+
+/* ===== SCROLL PERFORMANCE STATE START ===== */
+let isScrolling = false;
+let scrollTimeout;
+/* ===== SCROLL PERFORMANCE STATE END ===== */
+/* ===== SCROLL PERFORMANCE SETUP START ===== */
+function setupScrollPerformance() {
+  window.addEventListener(
+    "scroll",
+    () => {
+      isScrolling = true;
+      window.clearTimeout(scrollTimeout);
+
+      scrollTimeout = window.setTimeout(() => {
+        isScrolling = false;
+      }, 120);
+    },
+    { passive: true }
+  );
+}
+/* ===== SCROLL PERFORMANCE SETUP END ===== */
 /* ===== GLOBAL STATE END ===== */
 
 /* ===== PARTICLE CLASS START ===== */
@@ -316,14 +337,15 @@ function setStaticContent() {
 function animateParticles() {
   ctx.clearRect(0, 0, els.canvas.width, els.canvas.height);
 
-  if (particles.length < MAX_PARTICLES) {
-    particles.push(new Particle());
-  }
+  if (!isScrolling) {
+    if (particles.length < MAX_PARTICLES) {
+      particles.push(new Particle());
+    }
 
-  for (let i = particles.length - 1; i >= 0; i -= 1) {
-    const p = particles[i];
-    p.update(mouse);
-    p.draw();
+    for (let i = particles.length - 1; i >= 0; i -= 1) {
+      const p = particles[i];
+      p.update(mouse);
+      p.draw();
 
     /* ===== ORIGINAL MORE LINE PARTICLE CONNECTIONS START ===== */
     /*
@@ -378,32 +400,33 @@ function animateParticles() {
     /* ===== LESS PARTICLE CONNECTIONS END ===== */
 
     /* ===== CURRENT PARTICLE CONNECTIONS START ===== */
-    for (let j = i - 1; j >= 0; j -= 1) {
-      if (isMobile && j % 2 !== 0) continue;
+      for (let j = i - 1; j >= 0; j -= 1) {
+        if (isMobile && j % 2 !== 0) continue;
 
-      const p2 = particles[j];
-      const dx = p.x - p2.x;
-      const dy = p.y - p2.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
+        const p2 = particles[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < CONNECT_DISTANCE) {
-        ctx.save();
-        ctx.strokeStyle = p.color;
-        ctx.globalAlpha = (CONNECT_DISTANCE - distance) / 280;
-        ctx.shadowBlur = isMobile ? 4 : 10;
-        ctx.shadowColor = p.color;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(p2.x, p2.y);
-        ctx.stroke();
-        ctx.restore();
+        if (distance < CONNECT_DISTANCE) {
+          ctx.save();
+          ctx.strokeStyle = p.color;
+          ctx.globalAlpha = (CONNECT_DISTANCE - distance) / 280;
+          ctx.shadowBlur = isMobile ? 4 : 10;
+          ctx.shadowColor = p.color;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+          ctx.restore();
+        }
       }
-    }
     /* ===== CURRENT PARTICLE CONNECTIONS END ===== */
 
-    if (p.life <= 0 || p.size <= 0.5) {
-      particles.splice(i, 1);
+      if (p.life <= 0 || p.size <= 0.5) {
+        particles.splice(i, 1);
+      }
     }
   }
 
@@ -888,6 +911,8 @@ function init() {
   setupPointerTracking();
   startCountdown();
   animateParticles();
+
+  setupScrollPerformance();
 }
 
 init();
