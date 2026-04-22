@@ -99,7 +99,10 @@ svg {
   top: 0;
   z-index: 1000;
   background: rgba(18, 0, 34, 0.84);
-
+  /*
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px); 
+  */
   border-bottom: 2px solid rgba(0, 255, 204, 0.25);
   box-shadow: 0 0 24px rgba(0, 255, 204, 0.15);
 }
@@ -526,6 +529,16 @@ nav ul {
 }
 /* ===== ABOUT / STORY CARDS END ===== */
 
+/* ===== STORY GRID STABILITY START ===== */
+.story-grid {
+  align-items: stretch;
+}
+
+.story-card {
+  min-height: 220px;
+}
+/* ===== STORY GRID STABILITY END ===== */
+
 /* ===== FILTERS + SCHEDULE START ===== */
 .filters {
   display: flex;
@@ -553,6 +566,8 @@ nav ul {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(0, 255, 204, 0.35);
   box-shadow: var(--shadow-cyan);
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(0, 255, 204, 0.35);
 }
 
 .schedule-grid {
@@ -635,6 +650,12 @@ nav ul {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 /* ===== FILTERS + SCHEDULE END ===== */
+
+/* ===== SCHEDULE STABILITY START ===== */
+#schedule-grid {
+  min-height: 700px;
+}
+/* ===== SCHEDULE STABILITY END ===== */
 
 /* ===== MAP SECTION START ===== */
 .map-container {
