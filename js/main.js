@@ -276,23 +276,41 @@ class Particle {
     this.size = Math.max(0.7, this.size - 0.003);
   }
 
+  /* ===== PARTICLE DRAW START ===== */
   draw() {
     ctx.save();
     ctx.globalAlpha = Math.min(1, this.life / 260);
-    ctx.shadowBlur = 14;
+    ctx.shadowBlur = isMobile ? 6 : 14;
     ctx.shadowColor = this.color;
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, this.size, this.size);
     ctx.restore();
   }
+  /* ===== PARTICLE DRAW END ===== */
 }
 /* ===== PARTICLE CLASS END ===== */
 
 /* ===== BASIC UTILITY FUNCTIONS START ===== */
+/*
 function resizeCanvas() {
   els.canvas.width = window.innerWidth;
   els.canvas.height = window.innerHeight;
 }
+*/
+/* ===== CANVAS RESIZE START ===== */
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+
+  els.canvas.width = window.innerWidth * dpr;
+  els.canvas.height = window.innerHeight * dpr;
+
+  els.canvas.style.width = `${window.innerWidth}px`;
+  els.canvas.style.height = `${window.innerHeight}px`;
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+/* ===== CANVAS RESIZE END ===== */
+
 
 function formatCategory(category) {
   const map = {
@@ -909,10 +927,10 @@ function init() {
   setupMobileNav();
   setupScrollSpy();
   setupPointerTracking();
+  setupScrollPerformance();
+
   startCountdown();
   animateParticles();
-
-  setupScrollPerformance();
 }
 
 init();
