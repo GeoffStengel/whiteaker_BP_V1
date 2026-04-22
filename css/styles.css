@@ -1214,5 +1214,8 @@ nav ul {
   .itinerary-actions .glow-button {
     width: 100%;
   }
+  .hero{
+    padding: calc(.5rem + 2rem) 1rem 4rem;
+  }
 }
 /* ===== RESPONSIVE STYLES END ===== */
