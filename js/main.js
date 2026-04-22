@@ -209,10 +209,10 @@ const els = {
 /* ===== GLOBAL STATE START ===== */
 const ctx = els.canvas.getContext("2d");
 const particleColors = ["#00ffcc", "#ff00aa", "#ffff00", "#00ff88", "#ff8800"];
-const isMobile = window.innerWidth < 768;
+const isMobile = window.innerWidth < 1400;
 //const MAX_PARTICLES = isMobile ? 70 : 140;
 //const CONNECT_DISTANCE = isMobile ? 85 : 125;
-const MAX_PARTICLES = isMobile ? 35 : 140;
+const MAX_PARTICLES = isMobile ? 18 : 140;
 const CONNECT_DISTANCE = isMobile ? 65 : 125;
 
 

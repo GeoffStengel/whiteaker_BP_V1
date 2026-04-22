@@ -1087,7 +1087,7 @@ nav ul {
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1054px) {
   .menu-toggle {
     display: inline-flex;
   }
