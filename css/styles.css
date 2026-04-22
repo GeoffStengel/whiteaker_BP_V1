@@ -99,8 +99,7 @@ svg {
   top: 0;
   z-index: 1000;
   background: rgba(18, 0, 34, 0.84);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+
   border-bottom: 2px solid rgba(0, 255, 204, 0.25);
   box-shadow: 0 0 24px rgba(0, 255, 204, 0.15);
 }
