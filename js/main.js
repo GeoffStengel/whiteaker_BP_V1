@@ -146,7 +146,7 @@ const siteData = {
     },
     {
       title: "Blairally Arcade",
-      body: "Retro games, weird corners, and a neon-heavy side pocket that feels extra Whiteaker in the best way.",
+      body: "Retro games, weird corners, and a neon-heavy side pocket that feels extra Whiteaker in the best way.  Learn more at <a href='https://blairally.com/' target='_blank'>blairally.com</a>",
     },
     {
       title: "Sam Bond's Stage",
@@ -162,7 +162,7 @@ const siteData = {
     },
     {
       title: "Sacred Connections Church",
-      body: "SCM One of the most visually memorable spots once the evening energy starts climbing.",
+      body: "SCC a longtime Whiteaker neighbor & community hub. They’re hosting a few booths with Vendors, Food & Live Music from 1:00–10:00 PM. <a href='https://www.sacredconnections810.com/' target='_blank'>Learn more sacredconnections810.com/</a>",
     },
   ],
 
