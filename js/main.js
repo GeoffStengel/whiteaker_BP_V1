@@ -1,10 +1,10 @@
 /* ===== SITE DATA START ===== */
 const siteData = {
   event: {
-    date: "2026-08-08T12:00:00", // replace with real date when confirmed
-    dateLabel: "AUGUST 8 • 2026 • 12PM–10PM • BLAIR BLVD, EUGENE",
+    date: "2026-08-01T12:00:00", // replace with real date when confirmed
+    dateLabel: "AUGUST 1 • 2026 • 12PM–10PM • BLAIR BLVD, EUGENE",
     aboutLabel:
-      "August 8 • 2026 • 12PM–10PM • Blair Blvd, Eugene • All ages • Free entry • Pure community magic",
+      "August 1 • 2026 • 12PM–10PM • Blair Blvd, Eugene • All ages • Free entry • Pure community magic",
   },
 
   schedule: [
