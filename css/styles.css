@@ -532,6 +532,11 @@ nav ul {
   color: var(--muted);
   line-height: 1.8;
 }
+
+#about-details a {
+  color: var(--yellow);
+  
+}
 /* ===== ABOUT / STORY CARDS END ===== */
 
 /* ===== STORY GRID STABILITY START ===== */

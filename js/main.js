@@ -49,12 +49,28 @@ const siteData = {
       desc: "Local jam-heavy energy built for packed sidewalks and drifting crowds.",
     },
     {
+      id: 10,
+      time: "4:15 PM",
+      title: "Justus – Main Stage",
+      category: "music",
+      location: "Sacred Connections Church  ",
+      desc: "Local band that blends rock, funk, and soul into a high-energy performance.",
+    },
+    {
       id: 6,
       time: "5:30 PM",
       title: "Fire Spinners & LED Flow",
       category: "art",
       location: "Flow Zone",
       desc: "One of those moments where everyone stops and just watches the block light up.",
+    },
+    {
+      id: 11,
+      time: "6:00 PM",
+      title: "Uncle Brad Stage",
+      category: "music",
+      location: "G Spot",
+      desc: "Whiteaker colab of a blend of local sounds.",
     },
     {
       id: 7,
@@ -80,6 +96,7 @@ const siteData = {
       location: "Twenty After Four",
       desc: "Bass, lights, and the moment where people decide they are staying longer than planned.",
     },
+
   ],
 
   booths: [
@@ -142,7 +159,7 @@ const siteData = {
   mapInfo: [
     {
       title: "Twenty After Four – 420 Blair Blvd",
-      body: "Main headquarters energy. Music, drinks, and one of the core crowd magnets of the whole day.",
+      body: "Local Dispensary & Main headquarters energy. Music, drinks, and one of the core crowd magnets of the whole day. <a href='https://www.twentyafterfour.com/' target='_blank'>Learn more twentyafterfour.com</a> (FYI their site seems under construction)  📍<a href='https://maps.app.goo.gl/YfoDhVmsbETKNpzQ7' target='_blank'>420 Blair BLVD Eugene OR 97402</a>",
     },
     {
       title: "Blairally Arcade",
@@ -162,7 +179,7 @@ const siteData = {
     },
     {
       title: "Sacred Connections Church",
-      body: "SCC a longtime Whiteaker neighbor & community hub. They’re hosting a few booths with Vendors, Food & Live Music from 1:00PM–10:00 PM. <a href='https://www.sacredconnections810.com/' target='_blank'>Learn more sacredconnections810.com/</a> 810 West 3rd Ave, Eugene, OR 97402",
+      body: "SCC a longtime Whiteaker neighbor & community hub. They’re hosting a few booths with Vendors, Food & Live Music from 1:00PM–10:00 PM. <a href='https://www.sacredconnections810.com/' target='_blank'>Learn more sacredconnections810.com/</a> 📍<a href='https://maps.app.goo.gl/CbuTnV4x7xFrwrKx7' target='_blank'>810 West 3rd Ave, Eugene, OR 97402</a>",
     },
   ],
 
@@ -347,7 +364,7 @@ function currentFilteredEvents() {
 /* ===== STATIC CONTENT SETUP START ===== */
 function setStaticContent() {
   els.heroDate.textContent = siteData.event.dateLabel;
-  els.aboutDetails.textContent = siteData.event.aboutLabel;
+  //els.aboutDetails.textContent = siteData.event.aboutLabel;
 }
 /* ===== STATIC CONTENT SETUP END ===== */
 
@@ -365,57 +382,6 @@ function animateParticles() {
       p.update(mouse);
       p.draw();
 
-    /* ===== ORIGINAL MORE LINE PARTICLE CONNECTIONS START ===== */
-    /*
-    for (let j = i - 1; j >= 0; j -= 1) {
-      const p2 = particles[j];
-      const dx = p.x - p2.x;
-      const dy = p.y - p2.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-
-      if (distance < CONNECT_DISTANCE) {
-        ctx.save();
-        ctx.strokeStyle = p.color;
-        ctx.globalAlpha = (CONNECT_DISTANCE - distance) / 280;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = p.color;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(p2.x, p2.y);
-        ctx.stroke();
-        ctx.restore();
-      }
-    }
-    */
-    /* ===== ORIGINAL MORE LINE PARTICLE CONNECTIONS END ===== */
-
-    /* ===== LESS PARTICLE CONNECTIONS START ===== */
-    /*
-    if (!isMobile) {
-      for (let j = i - 1; j >= 0; j -= 1) {
-        const p2 = particles[j];
-        const dx = p.x - p2.x;
-        const dy = p.y - p2.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < CONNECT_DISTANCE) {
-          ctx.save();
-          ctx.strokeStyle = p.color;
-          ctx.globalAlpha = (CONNECT_DISTANCE - distance) / 280;
-          ctx.shadowBlur = 10;
-          ctx.shadowColor = p.color;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.stroke();
-          ctx.restore();
-        }
-      }
-    }
-    */
-    /* ===== LESS PARTICLE CONNECTIONS END ===== */
 
     /* ===== CURRENT PARTICLE CONNECTIONS START ===== */
       for (let j = i - 1; j >= 0; j -= 1) {
