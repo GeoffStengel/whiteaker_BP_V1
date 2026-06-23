@@ -150,7 +150,7 @@ const siteData = {
     },
     {
       title: "Sam Bond's Stage",
-      body: "Live music, packed crowd moments, and a reliable place to catch people drifting in from every direction.",
+      body: "Live music, packed crowd moments, and a reliable place to catch people drifting in from every direction. Learn more at <a href='https://www.sambonds.com/' target='_blank'>sambonds.com</a>",
     },
     {
       title: "Vendor Row",
@@ -162,7 +162,7 @@ const siteData = {
     },
     {
       title: "Sacred Connections Church",
-      body: "SCC a longtime Whiteaker neighbor & community hub. They’re hosting a few booths with Vendors, Food & Live Music from 1:00–10:00 PM. <a href='https://www.sacredconnections810.com/' target='_blank'>Learn more sacredconnections810.com/</a>",
+      body: "SCC a longtime Whiteaker neighbor & community hub. They’re hosting a few booths with Vendors, Food & Live Music from 1:00PM–10:00 PM. <a href='https://www.sacredconnections810.com/' target='_blank'>Learn more sacredconnections810.com/</a> 810 West 3rd Ave, Eugene, OR 97402",
     },
   ],
 

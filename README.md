@@ -19,7 +19,7 @@ Website for the Whiteaker Block Party 2026!
      1. Create Github Pages To Make Site Live & Link Your Domain After
      2. In Repo U Just Created Go To Settings & On Sidebar Click "Pages"
      3. Select Deploy From Branch Choose "Master" Or "Main" & SAVE
-     4. 🎉 Congratulations! (URL is Above give a sec or refresh browser)
+🎉   4. Congratulations! (URL is Above give a sec or refresh browser)
 
 🔥 How To Link Godaddy Domain To A Github Pages Site:
      1. DNS Point Godaddy Domain to Github Pages Tutorial: https://youtu.be/dbgEWWBvIxY 🛎️ 

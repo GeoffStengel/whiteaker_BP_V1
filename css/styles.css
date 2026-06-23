@@ -509,6 +509,11 @@ nav ul {
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: var(--shadow-soft);
 }
+.modal-content a {
+  color: var(--cyan);
+  text-decoration: underline;
+}
+
 
 .story-card {
   border-radius: var(--radius-lg);
